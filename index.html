@@ -32,9 +32,7 @@
                  <!-- CV -->
 
             <div class="cv-container">
-
                 <button class="btn-cv" id="downloadCV" type="button">
-
                         <span class="download-icon">
                             <span class="download-arrow">↓</span>
                             <span class="download-square"></span>
@@ -49,6 +47,7 @@
                         href="cv/CV RUTH TORRESS.docx" download id="cvFile" style="display: none;">
                     </a>
             </div>
+        </div>
 
                <div class="contact">
                     <a href="https://www.linkedin.com/in/ruthtorresr1/" target="_blank" aria-label="LinkedIn">
@@ -67,12 +66,10 @@
             
 
             <!-- Imagen en el lado derecho -->
-          <img src="img/Ruti.jpg" class="rounded float-end foto-perfil" alt="Foto de Ruth Torres">
-    
-          
 
-    </section>
-
+       <div class="foto-container">
+                <img src="img/ruti.jpeg" class="rounded float-end foto-perfil" alt="Foto de Ruth Torres">
+            </div>
     <script>
 
 const downloadButton =
@@ -80,7 +77,6 @@ const downloadButton =
 
 const cvFile =
     document.getElementById("cvFile");
-
 
 downloadButton.addEventListener("click", function () {
 
