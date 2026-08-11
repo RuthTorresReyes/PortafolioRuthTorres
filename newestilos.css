@@ -207,5 +207,181 @@ a {
         width: 220px;
         height: 300px;
     }
+}
+/* BOTÓN CV  */
 
+.cv-container {
+display: flex;
+
+justify-content: center;
+
+margin: 45px 0;
+
+}
+
+.btn-cv {
+position: relative;
+
+display: flex;
+
+align-items: center;
+
+gap: 14px;
+
+padding: 12px 25px;
+
+border: 1px solid #98dac9;
+
+border-radius: 50px;
+
+background: rgba(181, 218, 201, 0.03);
+
+color: #b5dac9;
+
+cursor: pointer;
+
+overflow: hidden;
+
+transition: all 0.3s ease;
+
+}
+
+.btn-cv:hover {
+transform: translateY(-4px);
+
+background: rgba(181, 218, 201, 0.08);
+
+box-shadow:
+    0 10px 30px rgba(181, 218, 201, 0.15);
+
+}
+
+/* ICONO CV */
+
+.download-icon {
+position: relative;
+
+width: 25px;
+
+height: 25px;
+
+display: flex;
+
+align-items: center;
+
+justify-content: center;
+
+border-radius: 50%;
+
+}
+
+.download-icon::before {
+content: "";
+
+position: absolute;
+
+inset: 0;
+
+border-radius: 50%;
+
+background:
+    conic-gradient(
+        #b5dac9 var(--progreso, 0deg),
+        rgba(181, 218, 201, 0.15) var(--progreso, 0deg)
+    );
+
+-webkit-mask:
+    radial-gradient(
+        farthest-side,
+        transparent calc(100% - 3px),
+        #000 calc(100% - 2px)
+    );
+
+mask:
+    radial-gradient(
+        farthest-side,
+        transparent calc(100% - 3px),
+        #000 calc(100% - 2px)
+    );
+
+}
+
+.download-arrow {
+position: relative;
+
+z-index: 2;
+
+font-size: 18px;
+
+line-height: 1;
+
+transition: 0.3s ease;
+
+}
+
+.download-square {
+position: absolute;
+
+bottom: 2px;
+
+width: 8px;
+
+height: 2px;
+
+background: #b5dac9;
+
+border-radius: 2px;
+
+}
+
+/* ANIMACIÓN CV */
+
+.btn-cv.loading .download-arrow {
+animation: flechaDescarga 0.8s infinite;
+}
+
+.btn-cv.loading .download-icon {
+animation: girarIcono 1s linear infinite;
+}
+
+.btn-cv.loading .download-text {
+opacity: 0.7;
+}
+
+@keyframes flechaDescarga {
+
+0% {
+    transform: translateY(-3px);
+
+    opacity: 0.5;
+}
+
+50% {
+    transform: translateY(3px);
+
+    opacity: 1;
+}
+
+100% {
+    transform: translateY(-3px);
+
+    opacity: 0.5;
+}
+
+}
+
+@keyframes girarIcono {
+from {
+    transform: rotate(0deg);
+}
+to {
+    transform: rotate(360deg);
+}
+}
+.btn-cv.downloaded {
+border-color: #b5dac9;
+background: rgba(181, 218, 201, 0.12);
+}
+.btn-cv.downloaded .download-arrow {
+color: #ffffff;
 }
