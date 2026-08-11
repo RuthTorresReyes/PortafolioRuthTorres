@@ -29,6 +29,26 @@
                             Te invito a mi perfil →
                         </a>
                     </div>
+                 <!-- CV -->
+
+            <div class="cv-container">
+
+                <button class="btn-cv" id="downloadCV" type="button">
+
+                        <span class="download-icon">
+                            <span class="download-arrow">↓</span>
+                            <span class="download-square"></span>
+                        </span>
+
+                        <span class="download-text">
+                            Descargar mi CV
+                        </span>
+
+                </button>
+                    <a
+                        href="cv/CV RUTH TORRESS.docx" download id="cvFile" style="display: none;">
+                    </a>
+            </div>
 
                <div class="contact">
                     <a href="https://www.linkedin.com/in/ruthtorresr1/" target="_blank" aria-label="LinkedIn">
@@ -53,6 +73,47 @@
 
     </section>
 
+    <script>
+
+const downloadButton =
+    document.getElementById("downloadCV");
+
+const cvFile =
+    document.getElementById("cvFile");
+
+
+downloadButton.addEventListener("click", function () {
+
+    if (downloadButton.classList.contains("loading")) {
+        return;
+    }
+
+    downloadButton.classList.add("loading");
+
+    const icon =
+        downloadButton.querySelector(".download-icon");
+    let progreso = 0;
+    const intervalo = setInterval(function () {
+        progreso += 5;
+        if (progreso >= 90) {
+            progreso = 90;
+            clearInterval(intervalo);
+        }
+        icon.style.setProperty( "--progreso",  (progreso * 3.6) + "deg" );
+    }, 80);
+    setTimeout(function () {
+        icon.style.setProperty(
+            "--progreso",
+            "360deg"
+        );
+        cvFile.click();
+        setTimeout(function () {
+            downloadButton.classList.remove("loading");
+            icon.style.setProperty("--progreso","0deg" );
+        }, 700);
+    }, 1600);
+});
+</script>
 
 </body>
 </html>
